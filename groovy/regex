@@ -1,0 +1,17 @@
+//lets see how to use regex in groovy 
+//==~ is the pattern matcher
+//results in java.util.regex.Matcher instance
+
+def finder = ('groovy' =~ /gr.*/)
+println finder instanceof java.util.regex.Matcher
+ 
+def matcher = ('groovy' ==~ /gr.*/)
+println matcher instanceof Boolean
+ 
+
+println !('Groovy rocks!' ==~ /Groovy/)  // ==~ looks for an exact match.
+println 'Groovy rocks!' ==~ /Groovy.*/
+ 
+// Groovy matcher syntax can be used in other methods.
+println (['abc'] == ['def', 'abc', '123'].findAll { it =~ /abc/ })
+println ([false, false, true] == ['def', 'abc', '123'].collect { it ==~ /\d{4}/ })
